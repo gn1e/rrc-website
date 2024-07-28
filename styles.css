@@ -6,32 +6,33 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f0f0f0;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
     position: relative;
+    width: 300px;
+    max-width: 80%;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: all 1s ease-in-out;
     opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1s;
+    transform: scale(0.95);
+    height: 150px; /* Initial height */
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.container.expanded {
+    height: auto; /* Expand to fit content */
+    opacity: 1;
+    transform: scale(1);
 }
 
 .logo-box {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease-in-out;
-}
-
-.logo-box:hover {
-    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .logo {
@@ -48,19 +49,15 @@ body {
 
 .content {
     display: none;
+}
+
+.container.expanded .content {
+    display: block;
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 15px;
     text-align: left;
-    max-width: 600px;
-    transition: max-height 1s ease-in-out;
-    overflow: hidden;
-}
-
-.content.show {
-    display: block;
-    max-height: 1000px; /* Adjust as needed based on content */
 }
 
 .content h2 {

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("container");
+
+    // fade in stuff idk
     setTimeout(() => {
-        const content = document.getElementById("content");
-        content.classList.add("show");
-    }, 2000); // 2 seconds delay
+        container.classList.add("expanded");
+    }, 2000); // make that shit for 2 secs ong
 });
