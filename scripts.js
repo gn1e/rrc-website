@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("container");
-    const content = document.getElementById("content");
 
     // fade in
     setTimeout(() => {

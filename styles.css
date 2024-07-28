@@ -57,7 +57,7 @@ body {
 }
 
 .container.expanded .content {
-    max-height: 500px;
+    max-height: 1000px;
     opacity: 1;
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.2);
@@ -82,4 +82,28 @@ body {
     padding: 10px;
     border-radius: 5px;
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-summary {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-detail {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.project:hover .project-summary {
+    opacity: 0;
+}
+
+.project:hover .project-detail {
+    max-height: 200px;
+    opacity: 1;
 }
