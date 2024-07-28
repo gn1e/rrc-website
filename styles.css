@@ -5,7 +5,8 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f0f0f0;
+    background: #121212;
+    color: #ffffff;
 }
 
 .container {
@@ -14,12 +15,12 @@ body {
     max-width: 80%;
     padding: 20px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     overflow: hidden;
     opacity: 0;
     transform: scale(0.95);
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .container.show {
@@ -27,9 +28,9 @@ body {
     transform: scale(1);
 }
 
-.container.expand {
-    transition: height 1s ease-in-out;
-    height: 300px; /* wowie! expand! */
+.container.expanded {
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out;
 }
 
 .logo-box {
@@ -45,23 +46,21 @@ body {
 .title {
     margin-top: 10px;
     font-size: 24px;
-    color: #333;
+    color: #ffffff;
 }
 
 .content {
-    display: none;
-}
-
-.container.expand .content {
-    display: block;
+    max-height: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: max-height 1s ease-in-out, opacity 1s ease-in-out;
+    overflow: hidden;
 }
 
-.container.expand .content.show {
+.container.expanded .content {
+    max-height: 500px;
     opacity: 1;
     margin-top: 20px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 15px;
     text-align: left;
@@ -69,6 +68,7 @@ body {
 
 .content h2 {
     margin-top: 0;
+    color: #ffffff;
 }
 
 .content ul {
@@ -77,8 +77,9 @@ body {
 }
 
 .content ul li {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.2);
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
+    color: #ffffff;
 }
