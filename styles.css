@@ -6,12 +6,10 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f0f0f0;
-    overflow: hidden;
 }
 
 .container {
     text-align: center;
-    position: relative;
     width: 300px;
     max-width: 80%;
     padding: 20px;
@@ -19,16 +17,19 @@ body {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     overflow: hidden;
-    transition: all 1s ease-in-out;
     opacity: 0;
     transform: scale(0.95);
-    height: 150px; /* Initial height */
+    transition: all 0.5s ease-in-out;
 }
 
-.container.expanded {
-    height: auto; /* Expand to fit content */
+.container.show {
     opacity: 1;
     transform: scale(1);
+}
+
+.container.expand {
+    transition: height 1s ease-in-out;
+    height: 300px; /* wowie! expand! */
 }
 
 .logo-box {
@@ -51,8 +52,14 @@ body {
     display: none;
 }
 
-.container.expanded .content {
+.container.expand .content {
     display: block;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.container.expand .content.show {
+    opacity: 1;
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.8);
     padding: 20px;
