@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const logoBox = document.getElementById("logoBox");
-    const content = document.getElementById("content");
-
-    logoBox.addEventListener("click", () => {
-        content.style.display = content.style.display === "block" ? "none" : "block";
-    });
+    setTimeout(() => {
+        const content = document.getElementById("content");
+        content.classList.add("show");
+    }, 2000); // 2 seconds delay
 });
