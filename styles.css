@@ -11,6 +11,15 @@ body {
 .container {
     text-align: center;
     position: relative;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .logo-box {
@@ -18,7 +27,6 @@ body {
     border-radius: 15px;
     padding: 20px;
     backdrop-filter: blur(10px);
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
@@ -46,6 +54,13 @@ body {
     border-radius: 15px;
     text-align: left;
     max-width: 600px;
+    transition: max-height 1s ease-in-out;
+    overflow: hidden;
+}
+
+.content.show {
+    display: block;
+    max-height: 1000px; /* Adjust as needed based on content */
 }
 
 .content h2 {
